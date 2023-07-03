@@ -1,0 +1,35 @@
+﻿@model Cinema.Domain.DomainModels.Order
+
+<div class="container" style="padding-top:80px; padding-left:300px;">
+
+    <p class="text-center">
+        <h4 style="padding-left:107px;"> @Model.User.UserName</h4>
+    </p>
+
+    @for (int i = 0; i < Model.Tickets.Count(); i++)
+    {
+        var item = Model.Tickets.ElementAt(i).SelectedTicket;
+
+        if (i % 3 == 0)
+        {
+            @:<div class="row">
+            }
+
+            <div class="col-md-3 m-4 text-center">
+                <div class="card" style="width: 25rem; height: 20rem; background-color: #B1D8B7;">
+                    
+                    <div class="card-body" style="margin-top: 100px;">
+                        <h3><b>@item.Title</b></h3>
+                        <p>@item.TicketPrice MKD</p>
+                    </div>
+
+                </div>
+            </div>
+
+            if (i % 3 == 2)
+            {
+            @:</div>
+        }
+
+    }
+</div>
